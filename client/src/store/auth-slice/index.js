@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// This checks if you are in production (Vercel) or development (Local)
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 const initialState = {
