@@ -39,6 +39,10 @@ app.use(
   })
 );
 
+app.get("/", (req, res) => {
+  res.send("Ecommerce Store Server is Live and Running!");
+});
+
 app.use(cookieParser());
 app.use(express.json());
 app.use("/api/auth", authRouter);
