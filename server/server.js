@@ -25,13 +25,22 @@ mongoose
   .then(() => console.log("MongoDB connected successfully"))
   .catch((error) => console.log("MongoDB Connection Error:", error));
 
-// Middleware
+// Optimized CORS for Production
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173", 
-      "https://ecommerce-website-h7hvgu4v0-amey0210s-projects.vercel.app" // Ensure this is your latest Vercel link
-    ],
+    origin: function (origin, callback) {
+      const allowedOrigins = [
+        "http://localhost:5173",
+        "https://ecommerce-website-ochre-three.vercel.app"
+      ];
+      
+      // Allow origins that end with .vercel.app (covers all your preview links)
+      if (!origin || allowedOrigins.indexOf(origin) !== -1 || origin.endsWith(".vercel.app")) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [
       "Content-Type", 
@@ -43,6 +52,8 @@ app.use(
     credentials: true,
   })
 );
+
+
 
 app.use(cookieParser());
 app.use(express.json());
