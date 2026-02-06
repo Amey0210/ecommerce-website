@@ -1,6 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+// 1. Define the dynamic URL
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 const initialState = {
   isLoading: false,
   productList: [],
@@ -10,18 +13,15 @@ const initialState = {
 export const fetchAllFilteredProducts = createAsyncThunk(
   "/products/fetchAllProducts",
   async ({ filterParams, sortParams }) => {
-    console.log(fetchAllFilteredProducts, "fetchAllFilteredProducts");
-
     const query = new URLSearchParams({
       ...filterParams,
       sortBy: sortParams,
     });
 
+    // 2. Use backticks and ${API_URL}
     const result = await axios.get(
-      `http://localhost:5000/api/shop/products/get?${query}`
+      `${API_URL}/api/shop/products/get?${query}`
     );
-
-    console.log(result);
 
     return result?.data;
   }
@@ -30,8 +30,9 @@ export const fetchAllFilteredProducts = createAsyncThunk(
 export const fetchProductDetails = createAsyncThunk(
   "/products/fetchProductDetails",
   async (id) => {
+    // 3. Use backticks and ${API_URL}
     const result = await axios.get(
-      `http://localhost:5000/api/shop/products/get/${id}`
+      `${API_URL}/api/shop/products/get/${id}`
     );
 
     return result?.data;

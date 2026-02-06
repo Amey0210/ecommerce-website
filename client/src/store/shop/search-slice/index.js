@@ -1,6 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+// 1. Define the dynamic URL
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 const initialState = {
   isLoading: false,
   searchResults: [],
@@ -10,7 +13,8 @@ export const getSearchResults = createAsyncThunk(
   "/order/getSearchResults",
   async (keyword) => {
     const response = await axios.get(
-      `http://localhost:5000/api/shop/search/${keyword}`
+      // 2. Use the dynamic API_URL with backticks
+      `${API_URL}/api/shop/search/${keyword}`
     );
 
     return response.data;

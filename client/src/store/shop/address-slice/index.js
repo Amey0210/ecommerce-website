@@ -1,6 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+// 1. Define the dynamic URL at the top
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 const initialState = {
   isLoading: false,
   addressList: [],
@@ -10,7 +13,7 @@ export const addNewAddress = createAsyncThunk(
   "/addresses/addNewAddress",
   async (formData) => {
     const response = await axios.post(
-      "http://localhost:5000/api/shop/address/add",
+      `${API_URL}/api/shop/address/add`, // Use backticks and ${API_URL}
       formData
     );
 
@@ -22,7 +25,7 @@ export const fetchAllAddresses = createAsyncThunk(
   "/addresses/fetchAllAddresses",
   async (userId) => {
     const response = await axios.get(
-      `http://localhost:5000/api/shop/address/get/${userId}`
+      `${API_URL}/api/shop/address/get/${userId}`
     );
 
     return response.data;
@@ -33,7 +36,7 @@ export const editaAddress = createAsyncThunk(
   "/addresses/editaAddress",
   async ({ userId, addressId, formData }) => {
     const response = await axios.put(
-      `http://localhost:5000/api/shop/address/update/${userId}/${addressId}`,
+      `${API_URL}/api/shop/address/update/${userId}/${addressId}`,
       formData
     );
 
@@ -45,7 +48,7 @@ export const deleteAddress = createAsyncThunk(
   "/addresses/deleteAddress",
   async ({ userId, addressId }) => {
     const response = await axios.delete(
-      `http://localhost:5000/api/shop/address/delete/${userId}/${addressId}`
+      `${API_URL}/api/shop/address/delete/${userId}/${addressId}`
     );
 
     return response.data;
