@@ -4,7 +4,7 @@ A high-performance, responsive e-commerce platform built with the MERN stack. Th
 
 
 
-## 🚀 Key Features
+## Key Features
 
 * **Admin Dashboard:** Full CRUD operations for product management with real-time stock updates and data visualization.
 * **Media Management:** Secure image uploading, storage, and optimization via the **Cloudinary API**.
@@ -13,7 +13,7 @@ A high-performance, responsive e-commerce platform built with the MERN stack. Th
 * **Secure Checkout:** Integrated **PayPal Sandbox** environment supporting international USD transactions.
 * **Order Management:** Comprehensive order history and status tracking (Pending, Shipped, Delivered) for users.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technologies |
 | :--- | :--- |
@@ -25,7 +25,7 @@ A high-performance, responsive e-commerce platform built with the MERN stack. Th
 
 ---
 
-## 💡 Technical Challenges Overcome
+## Technical Challenges Overcome
 
 ### 1. Cross-Border Payment Integration
 **Problem:** Encountered regional Sandbox restrictions for domestic Indian transactions within PayPal.
@@ -43,7 +43,7 @@ A high-performance, responsive e-commerce platform built with the MERN stack. Th
 
 ---
 
-## 📦 Installation & Setup
+## Installation & Setup
 
 1. **Clone the Repository:**
    ```bash
