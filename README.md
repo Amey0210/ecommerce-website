@@ -54,26 +54,27 @@ A high-performance, responsive e-commerce platform built with the MERN stack. Th
   ```bash
   cd server
   npm install
-### Create a .env file and add the following:
+# Create a .env file and add the following:
   MONGO_URI, JWT_SECRET, CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET
   npm start
   ```
 
-3. Frontend Setup
-
-cd client
-npm install
+3. **Frontend Setup**
+  ```bash
+  cd client
+  npm install
 # Create a .env file and add:
 # VITE_API_URL=https://your-render-url.onrender.com
-npm run dev
+  npm run dev
+  ```
 
-# Live Demo
+## Live Demo
 Frontend Application: https://ecommerce-website-git-main-amey0210s-projects.vercel.app
 
 Backend API Health Check: https://ecommerce-website-1-uafb.onrender.com
 
 
-# Pro-Tips for the Reader
+## Pro-Tips for the Reader
 Production Build: For a production-ready frontend bundle, use npm run build to generate the dist folder.
 
 Security: Always ensure your .env file is included in your .gitignore to prevent sensitive keys from being exposed in public repositories.
